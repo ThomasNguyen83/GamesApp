@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaulthref="/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>New Game</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <form [formGroup]="gameForm">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Title</ion-label>
+                        <ion-input type="text" autocomplete autocorrect 
+                        formControlName="title"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Genre</ion-label>
+                        <ion-input type="text" autocomplete autocorrect 
+                        formControlName="genre"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Release Date</ion-label>
+                        <ion-datetime 
+                        min="2000-01-01" 
+                        max="2025-12-31" 
+                        formControlName="releaseDate"></ion-datetime>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row class="ion-text-center">
+                <ion-col size="6">
+                    <ion-button (click)="onCreateGame()" [disabled]="gameForm.invalid" 
+                    expand="block" fill="outline">Add</ion-button>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-button routerLink="/home" expand="block" 
+                    fill="outline" color="danger"> Cancel</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

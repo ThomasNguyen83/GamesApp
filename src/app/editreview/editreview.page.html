@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Edit Review</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="ion-text-center ion-margin-top">
+        <ion-card-header>
+            <ion-card-title>{{review?.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>{{review?.releaseDate | date:'mediumDate'}}</p>
+        </ion-card-content>
+    </ion-card>
+    <br><br>
+    <form [formGroup]="reviewForm">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Rating</ion-label>
+                        <ion-select formControlName="rating">
+                            <ion-select-option value="0">0</ion-select-option>
+                            <ion-select-option value="1">1</ion-select-option>
+                            <ion-select-option value="2">2</ion-select-option>
+                            <ion-select-option value="3">3</ion-select-option>
+                            <ion-select-option value="4">4</ion-select-option>
+                            <ion-select-option value="5">5</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Review</ion-label>
+                        <ion-textarea type="textArea" rows="2" maxlength="250" 
+                        formControlName="review"></ion-textarea>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row class="ion-text-center">
+                <ion-col size="12">
+                    <ion-button (click)="onUpdateReview()" [disabled]="reviewForm.invalid" 
+                    expand="block" fill="solid">Update Review</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

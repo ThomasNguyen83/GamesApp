@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaulthref="/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>New Review</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="ion-text-center">
+        <ion-card-header>
+            <ion-card-title>{{game?.title}}</ion-card-title>
+        </ion-card-header>
+        <img src ={{game?.image}}>
+        <ion-card-content>
+            <h3>{{game?.genre}}</h3>
+            <p>Released on {{game?.releaseDate | date}}</p>
+        </ion-card-content>
+    </ion-card>
+    <br><br>
+    <form [formGroup]="reviewForm">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Rating</ion-label>
+                        <ion-select formControlName="rating">
+                            <ion-select-option value="0">0</ion-select-option>
+                            <ion-select-option value="1">1</ion-select-option>
+                            <ion-select-option value="2">2</ion-select-option>
+                            <ion-select-option value="3">3</ion-select-option>
+                            <ion-select-option value="4">4</ion-select-option>
+                            <ion-select-option value="5">5</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Review</ion-label>
+                        <ion-textarea type="textArea" rows="2" maxlength="250" 
+                        formControlName="review"></ion-textarea>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row class="ion-text-center">
+                <ion-col size="12">
+                    <ion-button (click)="onAddReview()" [disabled]="reviewForm.invalid" 
+                    expand="block" fill="solid">Add Review</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

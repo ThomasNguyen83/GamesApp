@@ -1,0 +1,25 @@
+<ion-app>
+    <ion-menu side="start" menuId="first" contentId="main">
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>
+                    Rate and Reviews
+                </ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-menu-toggle auto-hide="true">
+                <ion-list mode="ios" class="ion-padding-top">
+                    <ion-item [routerLink]="'home'" routerDirection="forward" button>
+                        <ion-icon name="game-controller-outline"></ion-icon>
+                        View All Games
+                    </ion-item>
+                    <ion-item [routerLink]="'review'" routerDirection="forward" button>
+                        <ion-icon name="star-half-outline"></ion-icon>
+                        View Games Review</ion-item>
+                </ion-list>
+            </ion-menu-toggle>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
